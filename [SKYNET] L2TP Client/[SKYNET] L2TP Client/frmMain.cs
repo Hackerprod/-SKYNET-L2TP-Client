@@ -52,23 +52,11 @@ namespace SKYNET
 
             _dialer = new RasDialer();
 
-            CB_Servers.Visible = false;
-
             TB_Username.Text = Settings.Username;
             TB_Password.Text = Settings.Password;
             TB_PreSharedKey.Text = Settings.PreSharedKey;
-            //CB_Servers.Text = Settings.Server;
             TB_Servers.Text = Settings.Server;
             CH_AutoConnect.Checked = Settings.AutoConnect;
-
-            //for (int i = 0; i < CB_Servers.Items.Count; i++)
-            //{
-            //    object item = CB_Servers.Items[i];
-            //    if (item.ToString() == Settings.Server)
-            //    {
-            //        CB_Servers.SelectedItem = i;
-            //    }
-            //}
 
             if (Settings.AutoConnect)
             {
@@ -223,29 +211,34 @@ namespace SKYNET
             }
         }
 
-        public async Task Disconnect()
+        public void Disconnect()
         {
-            try
-            {
-                if (_dialer.IsBusy)
-                {
-                    _dialer.DialAsyncCancel();
-                }
-                else if (_handle != null)
-                {
-                    RasConnection.GetActiveConnectionByHandle(_handle)?.HangUp();
-                }
-                var rasPhoneBook = new RasPhoneBook();
-                rasPhoneBook.Open(RasPhoneBook.GetPhoneBookPath(RasPhoneBookType.AllUsers));
-                if (rasPhoneBook.Entries.Contains(_adapterName))
-                {
-                    rasPhoneBook.Entries.Remove(_adapterName);
-                }
-            }
-            catch (Exception)
-            {
+            Task.Run(() =>
+           {
+               BT_Auth.Enabled = false;
+               try
+               {
+                   if (_dialer.IsBusy)
+                   {
+                       _dialer.DialAsyncCancel();
+                   }
+                   else if (_handle != null)
+                   {
+                       RasConnection.GetActiveConnectionByHandle(_handle)?.HangUp();
+                   }
+                   var rasPhoneBook = new RasPhoneBook();
+                   rasPhoneBook.Open(RasPhoneBook.GetPhoneBookPath(RasPhoneBookType.AllUsers));
+                   if (rasPhoneBook.Entries.Contains(_adapterName))
+                   {
+                       rasPhoneBook.Entries.Remove(_adapterName);
+                   }
+               }
+               catch (Exception)
+               {
 
-            }
+               }
+               BT_Auth.Enabled = true;
+           });
         }
 
         private void WriteLine(object msg)

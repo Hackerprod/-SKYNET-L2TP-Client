@@ -49,7 +49,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.TB_PreSharedKey = new SKYNET.Controls.SKYNET_TextBox();
-            this.CB_Servers = new SKYNET.GUI.SKYNET_ComboBox();
             this.PN_Top.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -326,37 +325,12 @@
             this.TB_PreSharedKey.TabIndex = 14;
             this.TB_PreSharedKey.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
-            // CB_Servers
-            // 
-            this.CB_Servers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(61)))), ((int)(((byte)(75)))));
-            this.CB_Servers.BackColorMouseOver = System.Drawing.Color.Empty;
-            this.CB_Servers.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CB_Servers.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.CB_Servers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CB_Servers.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CB_Servers.ForeColor = System.Drawing.Color.White;
-            this.CB_Servers.FormattingEnabled = true;
-            this.CB_Servers.ItemHeight = 28;
-            this.CB_Servers.Items.AddRange(new object[] {
-            "pvpn1.mywire.org",
-            "pvpn2.mywire.org",
-            "pvpn3.mywire.org",
-            "pvpn4.mywire.org",
-            "pvpn5.mywire.org",
-            "pvpn6.mywire.org",
-            "pvpn7.mywire.org"});
-            this.CB_Servers.Location = new System.Drawing.Point(30, 123);
-            this.CB_Servers.Name = "CB_Servers";
-            this.CB_Servers.Size = new System.Drawing.Size(220, 34);
-            this.CB_Servers.TabIndex = 16;
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(39)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(539, 357);
-            this.Controls.Add(this.CB_Servers);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.TB_PreSharedKey);
             this.Controls.Add(this.label13);
@@ -406,7 +380,6 @@
         private System.Windows.Forms.Label label6;
         private Controls.SKYNET_TextBox TB_PreSharedKey;
         private System.Windows.Forms.Panel PN_Status;
-        private GUI.SKYNET_ComboBox CB_Servers;
     }
 }
 
